@@ -1,0 +1,38 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=OdooyvtPa4f
+      - POSTGRES_USER=odoo
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data
+    # El Healthcheck verifica si Postgres ya acepta conexiones
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U odoo -d postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    image: odoo:18.0
+    ports:
+      - 8069:8069
+    volumes:
+      - ./addons:/mnt/extra-addons
+      - ./config:/etc/odoo
+      - odoo-web-data:/var/lib/odoo
+    environment:
+      - HOST=db
+      - USER=odoo
+      - PASSWORD=OdooyvtPa4f
+    # Sobrescribimos el comando para asegurar que use el archivo de config
+    command: [ "odoo", "-c", "/etc/odoo/odoo.conf" ]
+    # Aquí definimos la dependencia estricta del estado "healthy"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  odoo-db-data:
+  odoo-web-data:
