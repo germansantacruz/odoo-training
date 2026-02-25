@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_library_book_list" model="ir.ui.view">
+        <field name="name">library.book.list</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <list string="Libros">
+                <field name="name"/>                
+            </list>
+        </field>
+    </record>
+
+    <record id="view_library_book_form" model="ir.ui.view">
+        <field name="name">library.book.form</field>
+        <field name="model">library.book</field>
+        <field name="arch" type="xml">
+            <form string="Libro">
+                <header>                    
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>                           
+                        </group>
+                        <group>                           
+                        </group>
+                    </group>                    
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_library_book" model="ir.actions.act_window">
+        <field name="name">Libros</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">library.book</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Crea tu primer libro
+            </p>
+        </field>
+    </record>
+</odoo>
