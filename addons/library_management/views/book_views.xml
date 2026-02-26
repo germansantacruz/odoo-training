@@ -61,6 +61,15 @@
                         <page string="Resumen">
                             <field name="descripcion" placeholder="Escribe una breve reseña del libro..."/>
                         </page>
+                        <page string="Ejemplares Físicos" name="copies">
+                            <field name="copy_ids">
+                                <list editable="bottom">
+                                    <field name="name"/>
+                                    <field name="format_id"/>
+                                    <field name="status"/>
+                                </list>
+                            </field>
+                        </page>
                     </notebook>                   
                 </sheet>
             </form>

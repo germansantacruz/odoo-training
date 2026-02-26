@@ -32,3 +32,10 @@ class LibraryBook(models.Model):
     ], default='draft', string='Estado')
     active = fields.Boolean(string='Activo', default=True,
         help="Si está desmarcado, permite ocultar el libro sin eliminarlo de la base de datos.")
+    
+    # Relación One2many: Un libro -> Muchos ejemplares
+    copy_ids = fields.One2many(
+        'library.book.copy', 
+        'book_id', 
+        string='Ejemplares'
+    )
