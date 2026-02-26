@@ -22,16 +22,23 @@
                 <header>                        
                     <field name="state" widget="statusbar" options="{'clickable': '1'}"/>             
                 </header>
-                <sheet>
-                    <group>
-                        <group>
-                            <field name="name"/>     
-                            <field name="fecha_publicacion"/>   
-                            <field name="price" readonly="state == 'borrowed'"/>                                           
-                        </group>
-                        <group>      
+                <sheet>                   
+                    <div class="oe_title">                        
+                        <h1>
+                            <field name="name" placeholder="Ej: Dominando Odoo 18"/>
+                        </h1>
+                    </div>
+                    <group>                       
+                        <group string="Información Comercial">
+                            <field name="fecha_publicacion"/>
+                            <field name="price" decoration-info="price >= 100" readonly="state == 'borrowed'"/>                                           
+                            <field name="active" widget="boolean_toggle"/> 
+                        </group>                        
+                        <group string="Datos Técnicos">
                             <field name="isbn"/>
-                            <field name="active"/>                                                   
+                            <field name="publisher_url" widget="url" placeholder="e.g. https://www.lapapelera.com"/>
+                            <field name="cover_image" widget="image" nolabel="1"
+                                options="{'preview_image': 'cover_image'}" class="cover-image"/>
                         </group>
                     </group> 
                     <notebook>

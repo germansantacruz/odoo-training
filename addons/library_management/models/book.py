@@ -9,6 +9,17 @@ class LibraryBook(models.Model):
     fecha_publicacion = fields.Date(string='Fecha de publicación') 
     descripcion = fields.Text(string='Descripción')
     price = fields.Float(string="Precio")
+    # Campo de texto para la URL
+    publisher_url = fields.Char(string='Web del Publicador',
+        help="Sitio web oficial de la editorial o publicador.")
+    # Campo especializado para imágenes
+    # Definimos dimensiones máximas para optimizar el almacenamiento
+    cover_image = fields.Image(
+        string='Portada',
+        max_width=1024,
+        max_height=1024,
+        verify_resolution=True
+    )
     state = fields.Selection([
         ('available', 'Disponible'),
         ('borrowed', 'Prestado'),
