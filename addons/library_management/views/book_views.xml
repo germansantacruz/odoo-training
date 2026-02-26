@@ -4,8 +4,12 @@
         <field name="name">library.book.list</field>
         <field name="model">library.book</field>
         <field name="arch" type="xml">
-            <list string="Libros">
-                <field name="name"/>                
+            <list string="Libros" delete="0">
+                <field name="name"/>     
+                <field name="fecha_publicacion" />
+                <field name="isbn"/>
+                <field name="price"/>
+                <field name="state" widget="badge" decoration-info="state == 'available'" decoration-warning="state == 'borrowed'"/>           
             </list>
         </field>
     </record>
@@ -14,15 +18,21 @@
         <field name="name">library.book.form</field>
         <field name="model">library.book</field>
         <field name="arch" type="xml">
-            <form string="Libro">
-                <header>                    
+            <form string="Libro" delete="0">
+                <header>                        
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>             
                 </header>
                 <sheet>
                     <group>
                         <group>
-                            <field name="name"/>                           
+                            <field name="name"/>     
+                            <field name="fecha_publicacion" />   
+                            <field name="price"/>
+                            <field name="active"/>                 
                         </group>
-                        <group>                           
+                        <group>      
+                            <field name="isbn"/>
+                            <field name="descripcion"/>                                                 
                         </group>
                     </group>                    
                 </sheet>
