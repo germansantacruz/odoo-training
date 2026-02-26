@@ -27,14 +27,18 @@
                         <group>
                             <field name="name"/>     
                             <field name="fecha_publicacion"/>   
-                            <field name="price" readonly="state == 'borrowed'"/>
-                            <field name="active"/>                 
+                            <field name="price" readonly="state == 'borrowed'"/>                                           
                         </group>
                         <group>      
                             <field name="isbn"/>
-                            <field name="descripcion"/>                                                 
+                            <field name="active"/>                                                   
                         </group>
-                    </group>                    
+                    </group> 
+                    <notebook>
+                        <page string="Resumen">
+                            <field name="descripcion" placeholder="Escribe una breve reseña del libro..."/>
+                        </page>
+                    </notebook>                   
                 </sheet>
             </form>
         </field>
