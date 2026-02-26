@@ -6,6 +6,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/book_views.xml',
+        'views/book_format_views.xml',
         'views/menus.xml',
     ],
     'assets': {

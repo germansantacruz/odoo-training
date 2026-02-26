@@ -14,4 +14,10 @@
               parent="menu_library_content"
               action="action_library_book"
               sequence="10"/>
+    
+    <menuitem id="menu_library_book_format"
+              name="Formatos de Libro"
+              parent="menu_library_content"
+              action="action_library_book_format"
+              sequence="11"/>
 </odoo>
