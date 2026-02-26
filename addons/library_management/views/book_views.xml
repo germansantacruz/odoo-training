@@ -19,10 +19,26 @@
         <field name="model">library.book</field>
         <field name="arch" type="xml">
             <form string="Libro" delete="0">
-                <header>                        
+                <header>
+                    <button name="action_set_available" string="Validar Libro" 
+                        type="object" class="btn-primary" invisible="state != 'draft'"/>                        
                     <field name="state" widget="statusbar" options="{'clickable': '1'}"/>             
                 </header>
-                <sheet>                   
+                <sheet> 
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_archive" type="object" class="oe_stat_button" 
+                                icon="fa-archive" invisible="not active">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Archivar</span>
+                            </div>
+                        </button>
+                        <button name="action_unarchive" type="object" class="oe_stat_button" 
+                                icon="fa-check" invisible="active">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Activar</span>
+                            </div>
+                        </button>
+                    </div>
                     <div class="oe_title">                        
                         <h1>
                             <field name="name" placeholder="Ej: Dominando Odoo 18"/>

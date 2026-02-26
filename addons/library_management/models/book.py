@@ -4,6 +4,10 @@ class LibraryBook(models.Model):
     _name = 'library.book'
     _description = 'Libro de Biblioteca'
 
+    def action_set_available(self):
+        for record in self:
+            record.state = 'available'
+
     name = fields.Char(string='Título', required=True)   
     isbn = fields.Char(string='ISBN')
     fecha_publicacion = fields.Date(string='Fecha de publicación') 
