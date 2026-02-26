@@ -7,7 +7,7 @@ class LibraryBook(models.Model):
     name = fields.Char(string='Título', required=True)   
     isbn = fields.Char(string='ISBN')
     fecha_publicacion = fields.Date(string='Fecha de publicación') 
-    descripcion = fields.Text(string='Descripcion')
+    descripcion = fields.Text(string='Descripción')
     price = fields.Float(string="Precio")
     state = fields.Selection([
         ('available', 'Disponible'),

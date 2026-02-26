@@ -26,8 +26,8 @@
                     <group>
                         <group>
                             <field name="name"/>     
-                            <field name="fecha_publicacion" />   
-                            <field name="price"/>
+                            <field name="fecha_publicacion"/>   
+                            <field name="price" readonly="state == 'borrowed'"/>
                             <field name="active"/>                 
                         </group>
                         <group>      
