@@ -21,8 +21,10 @@ class LibraryBook(models.Model):
         verify_resolution=True
     )
     state = fields.Selection([
+        ('draft', 'Borrador'),
         ('available', 'Disponible'),
         ('borrowed', 'Prestado'),
-    ], default='available', string='Estado')
+        ('lost', 'Perdido/Dañado'),
+    ], default='draft', string='Estado')
     active = fields.Boolean(string='Activo', default=True,
         help="Si está desmarcado, permite ocultar el libro sin eliminarlo de la base de datos.")
